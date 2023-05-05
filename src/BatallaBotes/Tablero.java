@@ -67,9 +67,10 @@ public class Tablero {
         }
     }
 
-    public void agregarBote(int coordX, int coordY, Bote bote){
-        if (verCasilla(coordX, coordY) == false){
+    public void agregarBote(int coordX, int coordY, String color){
+        if (!verCasilla(coordX, coordY)){
             System.out.println("Agregando bote a la casilla (" + coordX + ", " + coordY + ")");
+            Bote bote = new Bote(coordX, coordY, color);
             cuadricula[coordX][coordY] = bote;
         }
         else {
@@ -78,7 +79,7 @@ public class Tablero {
     }
 
     public void hundirBote(int coordX, int coordY){
-        if (verCasilla(coordX, coordY) == true){
+        if (verCasilla(coordX, coordY)){
             System.out.println("Barco hundido con exito!");
             cuadricula[coordX][coordY] = null;
         } else {
